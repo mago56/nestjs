@@ -1,5 +1,6 @@
-import {Column, CreateDateColumn, Entity,PrimaryColumn, UpdateDateColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity,OneToMany,PrimaryColumn, UpdateDateColumn} from 'typeorm';
 import {ulid} from 'ulid';
+import {Profile} from "../../../profile/data/entity/profile.entity";
 
 @Entity()
 export class Account{
@@ -18,6 +19,8 @@ export class Account{
     created_at: Date;
     @UpdateDateColumn()
     updated_at: Date;
+    @OneToMany(()=>Profile,(profile)=> profile.account,{cascade:true, eager:true})
+    profiles:Profile[];
 
 
 
