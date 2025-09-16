@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryColumn} from "typeorm";
+import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn} from "typeorm";
 import {ulid} from "ulid";
 import {Account} from "../../../account/data/entity/account.entity";
 
@@ -8,7 +8,11 @@ export class Profile{
     profile_id:string;
     @Column()
     nbLike:number;
-    @ManyToOne(() =>Account, (account)=> account.profiles)
-    @JoinColumn({referencedColumnName:'account_id', name:'account_id_fk'})
-    account:Account;
+    @ManyToMany(() =>Account, (account)=> account.profiles)
+    @JoinTable({
+        name:'account_profile',
+        inverseJoinColumn: {name:'account_id_fk', referencedColumnName:'account_id'},
+        joinColumn:{name:'profile_id_fk', referencedColumnName:'profile_id'},
+    })
+    accounts:Account[];
 }
