@@ -1,4 +1,4 @@
-import {Column, Entity,PrimaryColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity,PrimaryColumn, UpdateDateColumn} from 'typeorm';
 import {ulid} from 'ulid';
 
 @Entity()
@@ -13,5 +13,12 @@ export class Account{
     birthdate:Date;
     @Column()
     mail:string;
+
+    @CreateDateColumn()
+    created_at: Date;
+    @UpdateDateColumn()
+    updated_at: Date;
+
+
 
 }
