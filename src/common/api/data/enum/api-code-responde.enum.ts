@@ -9,6 +9,11 @@ export enum ApiCodeResponse {
     TOKEN_EXPIRED = 'api.security.token-expired',
     USER_NOT_FOUND = 'api.security.user-not-found',
     NO_TOKEN_FOUNDED = 'api.security.token-not-found',
+    PAYLOAD_IS_NOT_VALID = 'api.common.param-is-missing',
+    USERNAME_IS_NOT_EMPTY='api.signin-param-username-is-missing',
+    PASSWORD_IS_NOT_EMPTY='api.signin-param-password-is-missing',
+    COMMON_SUCCES = 'api.common.succes',
+    ACCOUNT_SIGN_IN_SUCCES='api.signin.succes'
 
 
 }
