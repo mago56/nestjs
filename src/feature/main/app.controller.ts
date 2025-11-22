@@ -12,7 +12,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
     @Public()
     @ApiOperation(AppControllerHelloWorld)
-    @Get()
+    @Get('hello-world')
   getHello(): string {
     return this.appService.getHello();
   }
