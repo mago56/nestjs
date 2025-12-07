@@ -11,10 +11,6 @@ export class Credentials{
     password: string;
     @Column({nullable: false, unique: true})
     mail: string;
-    @Column({nullable: true, unique: false})
-    facebookHash: string;
-    @Column({nullable: true, unique: false})
-    googleHash: string;
     @Column({default:false})
     isAdmin:boolean;
     @Column({default: true})
